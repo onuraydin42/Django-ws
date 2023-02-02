@@ -1,0 +1,155 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+{% include "header.html" %}
+{% include "nav.html" %}
+<div class="mouse-icon hidden-xs">
+  <div class="scroll"></div>
+</div>
+
+<section id="be-the-first" class="pad-xl">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn"
+        data-wow-delay="0.6s"
+      >
+        <h2>Be the first</h2>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipis.</p>
+      </div>
+    </div>
+
+    <div class="iphone wow fadeInUp" data-wow-delay="1s">
+      <img
+        src={% static 'img/iphone.png' alt="Logo" %}></a>
+    </div>
+  </div>
+</section>
+<section id="main-info" class="pad-xl">
+
+  
+{% for feature in features%}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+        <hr class="line purple" />
+        <h3>{{feature.titlef}}</h3>
+        <p>
+          {{feature.metinf}}
+        </p>
+      </div>
+      {% endfor %}
+    </section>
+
+
+
+
+    
+    {% if user.is_authenticated %}
+    
+    {% else %}
+    <section id="pricing" class="pad-lg">
+      <div class="container">
+        <div class="row margin-40">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h2 class="white">Pricing</h2>
+            <p class="white">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              viverra orci ut.
+            </p>
+          </div>
+        </div>
+      {% for professional in professionals%}
+      <!-- Pricing Kısmı 3ü birden -->
+        <div
+        class="col-sm-4 pricing-container wow fadeInUp"
+        data-wow-delay="0.4s"
+      >
+        <ul class="list-unstyled active text-center">
+          <li class="headline"><h5 class="white">{{professional.title}}</h5></li>
+          <li class="price">
+            <div class="amount">${{professional.fiyati}}<small>/m</small></div>
+          </li>
+          <li class="info">
+            {{professional.metin}}
+          </li>
+          <li class="features first">{{professional.max_proje}}</li>
+          <li class="features">{{professional.depolama_alani}}</li>
+          <li class="features">{{professional.ek_bilgi}}</li>
+
+          {% if professional.bilgi2 %}
+
+          <li class="features">{{professional.ek_bilgi2}}</li>
+          
+          {% endif %}
+          
+          <li class="features last btn btn-secondary btn-wide">
+            <a href={% url 'signupaccount' %}>Get Started</a>
+          </li>
+        </ul>
+      </div>
+      {% endfor %}
+      </section>
+      <section id="invite" class="pad-lg light-gray-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+              <i class="fa fa-envelope-o margin-40"></i>
+              <h2 class="black">Get the invite</h2>
+              <br />
+              <p class="black">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                viverra orci ut.
+              </p>
+              <br />
+      
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                  <form role="form">
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        placeholder="Enter Email"
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                      Request Invite
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+ 
+
+
+<section id="press" class="pad-sm">
+
+  {% for destlast in destlasts%}
+
+  <div class="container">
+    <div class="row margin-30 news-container">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 wow fadeInLeft"
+        data-wow-delay="0.8s"
+      >
+        <a href="#/" target="_blank">
+          <img
+            class="news-img pull-left"
+            src={{destlast.photo.url}}
+            alt="Tech Crunch"
+          />
+          <p class="black">
+            {{destlast.titlel}}<br />
+            <small><em>{{destlast.name_date}}</em></small>
+          </p>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

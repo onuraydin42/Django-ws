@@ -1,0 +1,49 @@
+{% include "nav2.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/payment.css' %} "/>
+  </head>
+  <body>
+<div class="container p-0">
+    <div class="card px-4">
+        <p class="h8 py-3"style="color:#FFFFFF">Payment Details</p>
+        <div class="row gx-3">
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1"style="color:#FFFFFF">Person Name</p>
+                    <input class="form-control mb-3" type="text" placeholder="Name" value="">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1"style="color:#FFFFFF">Card Number</p>
+                    <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1"style="color:#FFFFFF">Expiry</p>
+                    <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <p class="text mb-2" style="color:#FFFFFF">CVV/CVC</p>
+                    <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="btn btn-primary mb-3">
+                    <span class="ps-3">Pay $100</span>
+                    <span class="fas fa-arrow-right"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

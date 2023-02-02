@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include "nav2.html" %}
+<center>
+<div class="container">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div>
+                <div class="card-body">
+                    <h3 class="card-title">Login</h3>
+                    {% if error %}
+                    <div class="alert alert-danger mt-3" role="alert">
+                        {{ error }}
+                    </div>
+                     {% endif %}
+                    <p class="card-text">
+                        <form method="POST">
+                        
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit"
+                            class="btn btn-primary">
+                            Login
+                        </button>
+                        Not a member?     <a href="{% url 'signupaccount' %}">Register Here</a>
+                    </form>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</center>
+{% endblock content %}
